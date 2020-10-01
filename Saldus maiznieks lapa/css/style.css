@@ -1,0 +1,774 @@
+@import url('../css/fonts.css');
+
+:root{
+
+    /*      Krāsas        */
+    --white: #ffffff;
+    --hover: #ffd289;
+    --bordo: #3f0d12;
+    --gaisais: #f3f0d9;
+
+
+    /*      fonti burtiem   */
+   
+    --Josefin: 'Josefin', sans-serif;
+    --Lexend: 'Lexend', sans-serif;
+   
+}
+
+body{
+    background-color: var(--white);
+}
+
+/* ---------------------navigacija---------------------- */
+
+.nav{
+    padding: 8px;
+    justify-content: space-between;
+    display: flex;
+    background: transparent;
+}
+
+.logo{
+    float: left;
+    padding: 8px;
+    margin-left: 36px;
+    margin-top: 5px;
+}
+
+.sadalas{
+    float: right;
+    margin-right: 60px;    
+    margin-top: 33px;
+    font-family: var(--Lexend);
+}
+
+.sadalas a{
+    text-decoration: none;
+    list-style: none;
+    font-size: 18px;
+    letter-spacing: 1.2px;    
+    font-weight: 580;
+    color: var(--bordo);
+    padding: 18px;
+    font-family: var(--Lexend);
+}
+
+.sadalas a:hover{
+    background-color: var(--bordo);
+    color: var(--gaisais);
+    border-radius: 6px;
+    font-family: var(--Lexend);
+}
+
+#keksis{
+    display: none;
+}
+
+.keksaform{
+    background: transparent;
+    color: var(--bordo);
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.keksaform label{
+    background-color: var(--bordo);
+    height: 35px;
+    width: 35px;
+    color: var(--gaisais);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.keksaform label span{
+    background-color: var(--gaisais);
+    height: 3px;
+    width: 60%;
+    margin: 2px 0px;
+}
+
+.keksaform{
+    display: none;
+}
+
+@media screen and (max-width: 1200px){
+    .nav {
+        flex-direction: grid;
+        display: none;
+    }
+    .sadalas{
+       display: grid;
+       text-align: center;
+    }
+    #keksis:checked + .nav{
+        display: flex;
+    }
+    .keksaform{
+        display: flex;
+    }
+}
+
+/* ---------------------sākums---------------------- */
+
+.bilde{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-weight: 400;
+    background: url(../img/pirma2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animate{
+    0%{
+        background-image: url(../img/pirma1.jpg);
+    }
+    25%{
+        background-image: url(../img/1.jpg);
+    }
+    50%{
+        background-image: url(../img/3.jpg);
+    }
+    75%{
+        background-image: url(../img/6.jpg);
+    }
+    100%{
+        background-image: url(../img/pirma2.jpg);
+    }
+}
+
+/* ---------------------Produkti---------------------- */
+
+p{
+  font-family: var(--Lexend);
+  color: var(--bordo);
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1200px){
+   p{
+     font-size: 0.6rem;
+   }
+}
+
+.h{
+    background-image: url(../img/rudzi.jpg);
+    background-size: 25%;
+    background-position: bottom;
+    padding: 10px;
+    color: var(--white);
+    padding-left: 15%;
+    font-family: var(--Lexend);
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 700px){
+  .h{
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------Rupjmaize-------- */
+
+.slidershow{
+    width: 650px;
+    height: 400px;
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+
+  .middle{
+    position: relative;
+    left: 33%;  
+}
+
+  @media screen and (max-width: 700px){
+    .middle{
+      position: relative;
+      left: 10%;  
+    }
+  }
+
+  .navigation{
+    position: absolute;       
+    display: flex;
+    padding-top: 6%;
+  }
+
+  .bar{
+    width: 50px;
+    height: 10px;
+    border: 2px solid var(--bordo);
+    margin: 6px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  @media screen and (max-width: 700px){
+    .bar{
+      width: 20px;
+      height: 5px;
+      margin: 3px;
+    } 
+  }
+
+  .bar:hover{
+    background: var(--bordo);
+  }
+  
+  input[name="r"]{
+      position: absolute;
+      visibility: hidden;
+  }
+  
+  .slides{
+    width: 700%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .slide{
+    width: 20%;
+    transition: 0.6s;
+  }
+
+  .slide img{
+    width: 80%;
+    height: 80%;
+  }
+
+  @media screen and (max-width: 700px){
+    .slide img{
+      width: 40%;
+      height: 40%;
+    }
+  }
+
+  #r1:checked ~ .s1{
+    margin-left: 0;
+  }
+  #r2:checked ~ .s1{
+    margin-left: -16%;
+  }
+  #r3:checked ~ .s1{
+    margin-left: -40%;
+  }
+  #r4:checked ~ .s1{
+    margin-left: -60%;
+  }
+  #r5:checked ~ .s1{
+    margin-left: -80%;
+  }
+  #r6:checked ~ .s1{
+    margin-left: -100%;
+  }
+  #r7:checked ~ .s1{
+    margin-left: -120%;
+  }
+
+  /* ---------Baltmaize-------- */
+
+  .slidershow2{
+      width: 550px;
+      height: 400px;
+      padding-bottom: 60px;
+      overflow: hidden;
+  }
+
+  input[name="t"]{
+    position: absolute;
+    visibility: hidden;
+  }
+
+  #t1:checked ~ .s2{
+    margin-left: 0;
+  }
+  #t2:checked ~ .s2{
+    margin-left: -20%;
+  }
+  #t3:checked ~ .s2{
+    margin-left: -40%;
+  }
+  #t4:checked ~ .s2{
+    margin-left: -60%;
+  }
+  #t5:checked ~ .s2{
+    margin-left: -80%;
+  }
+
+/* ---------Konditoreja-------- */
+
+.slidershow2{
+  width: 550px;
+  height: 400px;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+input[name="y"]{
+position: absolute;
+visibility: hidden;
+}
+
+#y1:checked ~ .s3{
+margin-left: 0;
+}
+#y2:checked ~ .s3{
+margin-left: -20%;
+}
+#y3:checked ~ .s3{
+margin-left: -40%;
+}
+#y4:checked ~ .s3{
+margin-left: -60%;
+}
+#y5:checked ~ .s3{
+margin-left: -80%;
+}
+
+/* ---------grauzdiņi un piparkūkas-------- */
+
+.slidershow2{
+  width: 550px;
+  height: 400px;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+input[name="u"]{
+position: absolute;
+visibility: hidden;
+}
+
+#u1:checked ~ .s4{
+margin-left: 0;
+}
+#u2:checked ~ .s4{
+margin-left: -20%;
+}
+#u3:checked ~ .s4{
+margin-left: -40%;
+}
+#u4:checked ~ .s4{
+margin-left: -60%;
+}
+#u5:checked ~ .s4{
+margin-left: -80%;
+}
+
+/* ----------------------Stāsts----------------------- */
+
+.teksts h1{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 1.6rem;
+}
+
+@media screen and (max-width: 600px){
+  .teksts h1{
+    font-size: 1rem;
+  }
+}
+
+.teksts p{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 0.98rem;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+
+@media screen and (max-width: 600px){
+  .teksts p{
+    font-size: 0.6rem;
+  }
+}
+
+.teksts{
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.konteiners{
+  width: 1280px;
+  margin: 50px auto 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 770px){
+  .konteiners{
+    padding-left: 17%;
+    flex-direction: column;
+  }
+}
+
+.konteiners .box{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: var(--bordo);
+  margin: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.konteiners .box .imgBox{
+  position: relative;  
+  overflow: hidden;
+}
+
+.konteiners .box .imgBox img{
+  max-width: 100%; 
+  transition: transform 2s;
+}
+
+.konteiners .box:hover .imgBox img{
+  transform: scale(1.2);
+}
+
+.konteiners .box .detalas{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(39, 3, 3, 0.6);
+  transform: scaleY(0);
+  transition: transform .5s;
+}
+
+.konteiners .box:hover .detalas{
+  transform: scaleY(1);
+}
+
+.konteiners .box .detalas .t_detalas{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 15px;
+}
+
+.konteiners .box .detalas .t_detalas h2{
+  margin: 0;
+  padding: 0;
+  color: var(--hover);
+  font-size: 1.3rem;
+  font-family: var(--Lexend);
+}
+
+.konteiners .box .detalas .t_detalas p{
+  margin: 10px 0 0;
+  padding: 0;
+  color: var(--gaisais);
+  font-size: 1rem;
+  font-family: var(--Lexend);
+}
+
+.apbalvojums{
+  width: 20%;
+  height: auto;  
+}
+
+@media screen and (max-width: 770px){
+  .apbalvojums{
+    width: 50%;
+    height: auto;  
+    padding-left: 25%;
+  }
+}
+
+.apbalvojums:hover{
+  transform: scaleY(1.1);
+  max-width: 50%; 
+  transition: transform 2s;
+}
+
+.apb_box{
+  display: flex;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media screen and (max-width: 770px){
+  .apb_box{
+    display: grid;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+.latv{
+  padding: 20px;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 1.6rem;
+}
+
+@media screen and (max-width: 770px){
+  .latv{
+    padding-left: 25%;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
+.latv_p{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 0.98rem;
+  padding: 40px;
+}
+
+/* ---------------------veikali---------------------- */
+
+.vieta_box{
+  display: flex; 
+  align-items: center;
+  padding-right: 20%;
+  padding-left: 25%;
+}
+
+@media screen and (max-width: 770px){
+  .vieta_box{
+    display: grid; 
+    
+  }
+}
+
+.vieta_img{
+  width: 50%;
+  height: auto; 
+}
+
+@media screen and (max-width: 770px){
+  .vieta_img{
+    width: 60%;
+    height: auto; 
+    padding-left: 20%;
+  }
+}
+
+.vieta_p{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 0.98rem;
+  padding: 40px;
+  padding-left: 55px;
+}
+
+@media screen and (max-width: 770px){
+  .vieta_p{
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+}
+
+/* ---------------------sasniegumi---------------------- */
+
+.sas_p{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 0.98rem;
+}
+
+@media screen and (max-width: 770px){
+  .sas_p{
+    text-align: center;
+    font-size: 0.7rem;
+  }
+}
+
+.sas_p_i{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 1.3rem;
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 770px){
+  .sas_p_i{
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+.sas_h{
+  padding: 20px;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 770px){
+  .sas_h{
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+}
+
+.kaste{
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px var(--bordo);
+  display: flex;
+  margin: 110px;
+  background-color: white;
+}
+
+@media screen and (max-width:1230px) {
+  .kaste{
+    display: grid;  
+    grid-template-rows: 1fr;
+    grid-template-columns: auto;
+    padding: 30px;
+    margin: 30px;
+  } 
+}
+
+.kaste:hover{  
+  box-shadow: 0 5px 15px var(--hover); 
+}
+
+.kastes_bilde{
+  width: 300px;
+  height: auto; 
+  padding: 20px;
+}
+
+@media screen and (max-width:1230px) {
+  .kastes_bilde{
+    display:block;
+    margin:0 auto;
+    width: 100px;
+  height: auto; 
+  padding: 5px;
+  } 
+}
+
+/* ---------------------kontakti---------------------- */
+
+.kont{
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width:1230px) {
+  .kont{
+    display: grid;
+    align-items: center;
+  }
+}
+
+.kont2{
+  display: flex;
+  padding: 10px;
+}
+
+@media screen and (max-width:1230px) {
+  .kont2{
+    display: grid;
+    align-items: center;
+  }
+}
+
+.m_kont{
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 0.8rem;
+  padding: 16px;
+  text-align: center;
+}
+
+.kont_p{
+  text-align: center;
+  color: var(--bordo);
+  font-family: var(--Lexend);
+  font-size: 0.98rem;
+}
+
+@media screen and (max-width:700px) {
+  .kont_p{
+    text-align: left;
+    font-size: 0.7rem;
+  }
+}
+
+.karte{
+  padding-left: 15%;
+  padding-right: 5%;
+  width: 500px;
+  height: 350px;
+}
+
+@media screen and (max-width:600px) {
+  .karte{
+    padding-left: 0%;
+    padding-right: 2%;
+  }
+}
+
+
+/* ---------------------Kājene---------------------- */
+
+.kajene{
+    background: var(--bordo);
+}
+
+.kajene_bloks{ 
+    height: 100%;   
+    color: var(--gaisais);
+    text-align: center;
+    display: flex;   
+    font-family: var(--Lexend);
+    padding: 25px 45% 35px 45%;
+}
+
+.seko_kajene p{
+  color: var(--gaisais);
+  text-decoration: none;  
+  font-family: var(--Lexend);
+}
+
+.seko_kajene a{
+    color: var(--gaisais);
+    text-decoration: none;
+    padding: 10px;
+    font-family: var(--Lexend);
+}
+
+.seko_kajene a:hover{
+    color: var(--hover);
+    text-decoration: none;
+}
+

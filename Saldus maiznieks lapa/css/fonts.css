@@ -1,0 +1,13 @@
+
+
+/*  font-family: Josefin  */
+@font-face {
+    font-family: Josefin;
+    src: url('../fonts/Josefin_Sans/JosefinSans-Regular.ttf');
+}
+
+/*  font-family: Lexend  */
+@font-face {
+    font-family: Lexend;
+    src: url('../fonts/Lexend_Deca/LexendDeca-Regular.ttf');
+}
