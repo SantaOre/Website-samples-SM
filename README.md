@@ -1,2 +1,2 @@
 # Website-samples
-Trials of my first websites
+Trials one of my first websites
